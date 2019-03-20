@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="score">score: <%= @score %></div>
+  <div class="time">time left: <%= @time_left %></div>
+  <div class="best_score">best score: <%= @best_score %></div>
+</div>
+
+<div class="board">
+  <%= for {{x,y}, type} <- @board do %>
+  <div class="field <%= type %>" style="left: <%= x * @field_size %>px; top: <%= y * @field_size %>px;">
+  </div>
+  <% end %>
+
+  <div class="final-score" style="display: <%= if @gameplay?, do: "none", else: "block" %>">
+    <p>TIME IS UP!</p>
+    <p>YOUR FINAL SCORE:</p>
+    <p><%= @score %></p>
+
+    <%= if @new_best_score? do %>
+    
+     <div class="new_best_score"><div class="best_score_icon"><img  src="images/hippo-down.png" width="50px"></div> 
+     NEW BEST SCORE</div>
+    <% end %>
+
+    <p style="font-size: .8em;">[ Press 'R' to play again ]</p>
+  </div>
+</div>
+
+<%= unless @gameplay? do %>
+  <script>document.cookie = "best_score=<%= @best_score %>; Expires=Sat, 2 Mar 2030 20:30:40 GMT;"</script>
+<% end %>
+
+<div class="field <%= @direction %>" phx-keydown="player" phx-target="window"
+  style="left: <%= @player_x * @field_size%>px; top: <%= @player_y * @field_size %>px;">
+  <%= if @bonus_value != 0 do %>
+  <div id="<%= @player_x %>,<%= @player_y %>" class="show_bonus"
+    style="color: <%= if @bonus_value > 0 do "#0e850e" else "#fd3839" end %>">
+    <%= @bonus_value %>
+  </div>
+  <% end %>
+</div>

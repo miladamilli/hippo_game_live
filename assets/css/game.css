@@ -1,0 +1,69 @@
+body {overflow:hidden;}
+.field {position: absolute; width: 50px; height: 50px; 
+     background-color:rgb(206, 201, 253); background-size: 50px;}
+
+.bonus1 {background-image:url('/images/bonus1.png');}
+.bonus2 {background-image:url('/images/bonus2.png');}
+.bonus3 { background-image:url('/images/bonus3.png');}
+.bonus_minus { background-image:url('/images/bonus_minus.png');}
+
+.playerup {background-image:url('/images/hippo-up.png');}
+.playerdown {background-image:url('/images/hippo-down.png'); }
+.playerright {background-image:url('/images/hippo-right.png');}
+.playerleft {background-image:url('/images/hippo-left.png');}
+
+.header {position: absolute; left: 50px; background-color:#ffed0b; width: 500px; color: #0e850e;} 
+
+.score, .time, .best_score {font-size:  1.3em; margin: 0 0 0 2.6rem;  float: left; }
+
+.final-score {position: absolute; left: 100px; top: 120px; width: 400px;  z-index: 999;
+    text-align: center; color: #fd3839; font-weight: bold; font-size: 1.3em;  
+    background-color:rgba(255, 255, 255, 0.8);}
+.final-score p {margin: 1em auto;}
+
+.show_bonus {
+    opacity: 0;  
+    display: block; 
+    text-align: center;
+    margin-left: -100%;
+    margin-right: -100%;
+    position: relative;
+    -webkit-animation-name: show_bonus; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: show_bonus;
+    animation-duration: 1.5s;
+  }
+
+@keyframes show_bonus {
+    0% {width: 0px;  opacity: 0; left: 75px; top: -10px;  font-size: 1em;}
+    20% {   width: 100px;    opacity: 1; left: 25px;  top: -60px;  font-size: 3.5em; }
+    100% {width: 0px;  opacity: 0; left: 75px; top: -10px; font-size: 1em;}
+}
+
+.new_best_score {color: #0e850e; font-size: 1.4em;}
+.best_score_icon {    
+    -webkit-animation-name: best_score; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: .5s; /* Safari 4.0 - 8.0 */
+    animation-name: best_score;
+    animation-duration: .5s; 
+    animation-iteration-count: infinite;
+}
+
+@keyframes best_score{
+    0% {transform: rotate(0deg); 
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Safari 3-8 */}
+    50% {transform: rotate(-20deg); 
+        -ms-transform: rotate(-20deg); /* IE 9 */
+        -webkit-transform: rotate(-20deg); /* Safari 3-8 */}
+    100% {transform: rotate(20deg); 
+        -ms-transform: rotate(20deg); /* IE 9 */
+        -webkit-transform: rotate(20deg); /* Safari 3-8 */}
+}
+
+.liveview  {font-size: 1.4em; 
+    font-weight: bold;
+    line-height: 1em;
+    color: black;
+    font-style: italic;
+  }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HippoGameLive · Phoenix Framework</title>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
+  <link rel="shortcut icon" href="<%= Routes.static_path(@conn, "/favicon.ico") %>" />
+</head>
+
+<body>
+  <main role="main" class="container">
+    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <%= render @view_module, @view_template, assigns %>
+
+    <div class="sidebar">
+      <div>
+        Powered by<br />
+        <a href="http://phoenixframework.org/" class="phx-logo">
+          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo" />
+        </a>
+        <a class="liveview" href="https://github.com/phoenixframework/phoenix_live_view/">LiveView</a>
+      </div>
+      <div>
+        Created by<br />
+        <a href="http://www.cernaovec.cz/" class="phx-logo">
+          <img src="<%= Routes.static_path(@conn, "/images/logo-cernaovec.jpg") %>" style="width: 100px;"
+            alt="cernaovec.cz" />
+        </a>
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+</body>
+
+</html>
