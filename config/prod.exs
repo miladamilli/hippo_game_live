@@ -12,7 +12,8 @@ use Mix.Config
 
 config :hippo_game_live,  HippoGameLiveWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "${APP_NAME}.gigalixirapp.com", port: 80],
+  http: [port: {:system, "PORT"}],
+  url: [host: "${APP_NAME}.gigalixirapp.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :hippo_game_live, HippoGameLiveWeb.Endpoint,
