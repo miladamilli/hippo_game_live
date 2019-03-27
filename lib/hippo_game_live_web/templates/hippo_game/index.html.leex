@@ -38,3 +38,10 @@
   </div>
   <% end %>
 </div>
+
+<div class="scores_now">
+  <div><p>LIVE SCORES</p></div>
+  <%= for score <- @scores do %>
+    <p><%= score %></p>
+  <% end %>
+</div>

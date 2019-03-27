@@ -5,14 +5,18 @@ defmodule HippoGameLiveWeb.HippoGameLive do
     HippoGameLiveWeb.HippoGameView.render("index.html", assigns)
   end
 
+  @topic inspect(__MODULE__)
+
   @game_length 30
   def mount(session, socket) do
     socket =
       socket
       |> new_game()
       |> assign(best_score: String.to_integer(Map.get(session.cookies, "best_score", "0")))
+      |> assign(scores: [])
 
     if connected?(socket) do
+      Phoenix.PubSub.subscribe(HippoGameLive.PubSub, @topic)
       {:ok, schedule_tick(socket)}
     else
       {:ok, socket}
@@ -45,6 +49,7 @@ defmodule HippoGameLiveWeb.HippoGameLive do
 
     if timeleft <= 0 do
       %{score: score, best_score: best_score} = socket.assigns
+      Phoenix.PubSub.broadcast(HippoGameLive.PubSub, @topic, {:score, score})
       new_best_score? = score > best_score
       best_score = if score > best_score, do: score, else: best_score
 
@@ -59,6 +64,10 @@ defmodule HippoGameLiveWeb.HippoGameLive do
       new_socket = schedule_tick(socket)
       {:noreply, assign(new_socket, board: add_new_bonus_field(socket), time_left: timeleft)}
     end
+  end
+
+  def handle_info({:score, score}, socket) do
+    {:noreply, assign(socket, scores: Enum.take([score | socket.assigns.scores], 10))}
   end
 
   def handle_event("player", key, socket) when key in ["r", "R"] do
