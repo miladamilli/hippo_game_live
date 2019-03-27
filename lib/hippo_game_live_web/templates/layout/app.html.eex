@@ -31,6 +31,9 @@
             alt="cernaovec.cz" />
         </a>
       </div>
+      <div>
+        See the code <a href="https://github.com/miladamilli/hippo_game_live">on GitHub</a>
+      </div>
     </div>
   </main>
   <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
