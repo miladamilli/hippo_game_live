@@ -19,7 +19,7 @@ h6{font-size: 1.4rem; letter-spacing: 0; line-height: 1.2}
 .container{
   margin: 0 auto;
   max-width: 90.0rem;
-  padding: 0 1.0rem;
+  /* padding: 0 1.0rem; */
   position: relative;
   width: 100%
 }
@@ -27,9 +27,9 @@ select {
   width: auto;
 }
 
-.sidebar {float:right; width: 200px; right: 0px; padding-top: 10%; text-align: right;}
+.sidebar {position: absolute; width: 200px; right: 0px; top: 350px; text-align: right;}
 /* .sidebar div a {font-size: 1.2em; } */
-.sidebar div {margin-bottom: 5em;}
+.sidebar div {margin-bottom: 1.8em;}
 
 /* Alerts and form errors */
 .alert {
@@ -83,7 +83,7 @@ select {
   /*min-width: 300px;*/
   display: block;
   float: right;
-  margin: .5em auto 0 auto;
+  margin: 0 auto;
 }
 .phx-logo img {
   width: auto;
