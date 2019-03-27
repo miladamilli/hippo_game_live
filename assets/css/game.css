@@ -21,7 +21,7 @@ body {overflow:hidden;}
     background-color:rgba(255, 255, 255, 0.8);}
 .final-score p {margin: 1em auto;}
 
-.scores_now {float: right; width: 150px; text-align: right; margin-top: 50px;
+.scores_now {float: right; width: 120px; text-align: right; margin-top: 50px;
      color: rgb(181, 168, 240);}
 .scores_now div {background-color: rgb(181, 168, 240); color: white;}
 .scores_now p {margin: 0; padding-right: 5%;}
