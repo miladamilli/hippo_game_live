@@ -29,7 +29,7 @@ select {
 
 .sidebar {position: absolute; width: 200px; right: 0px; top: 350px; text-align: right;}
 /* .sidebar div a {font-size: 1.2em; } */
-.sidebar div {margin-bottom: 1.8em;}
+.sidebar div {margin-bottom: 1.8em; float: right;}
 
 /* Alerts and form errors */
 .alert {
